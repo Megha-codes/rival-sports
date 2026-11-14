@@ -1,0 +1,39 @@
+# Render blueprint: deploys the bot at https://bot.rivalsports.in
+services:
+  - type: web
+    name: rival-sports-whatsapp-bot
+    runtime: python
+    plan: starter            # paid plan: stays awake 24/7, so replies are instant
+    region: singapore        # closest Render region to India
+    buildCommand: pip install -r requirements.txt
+    # Keep exactly 1 worker: chat state lives in memory and must be shared by all requests.
+    startCommand: gunicorn main:app --workers 1 --threads 8 --timeout 60 --bind 0.0.0.0:$PORT
+    healthCheckPath: /
+    domains:
+      - bot.rivalsports.in
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.13.1"
+      - key: WHATSAPP_PROVIDER
+        value: 360dialog       # coexistence: keep using the WhatsApp Business App
+      - key: BOT_PAUSE_HOURS
+        value: "4"
+      # Secrets: fill these in on the Render dashboard (never commit them).
+      - key: WHATSAPP_TOKEN
+        sync: false
+      - key: WHATSAPP_PHONE_NUMBER_ID
+        sync: false
+      - key: WHATSAPP_VERIFY_TOKEN
+        sync: false
+      - key: D360_API_KEY
+        sync: false
+
+  # The website at https://rivalsports.in (static site: free on Render)
+  - type: web
+    name: rival-sports-website
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: ./website
+    domains:
+      - rivalsports.in
+      - www.rivalsports.in
