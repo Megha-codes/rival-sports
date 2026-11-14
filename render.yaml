@@ -3,7 +3,9 @@ services:
   - type: web
     name: rival-sports-whatsapp-bot
     runtime: python
-    plan: starter            # paid plan: stays awake 24/7, so replies are instant
+    # Free plan: sleeps after 15 min with no messages, and the first reply after that can take up to a minute.
+    # Switch to "starter" (paid, always awake) once the bot is live with real patients.
+    plan: free
     region: singapore        # closest Render region to India
     buildCommand: pip install -r requirements.txt
     # Keep exactly 1 worker: chat state lives in memory and must be shared by all requests.

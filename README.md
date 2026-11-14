@@ -43,7 +43,7 @@ Things that change with coexistence: broadcast lists become read-only, linked de
 
 ## 4. Host it at bot.rivalsports.in (Render)
 
-`render.yaml` sets everything up: an always-on server in Singapore and the `bot.rivalsports.in` domain. It uses Render's paid Starter plan. The free plan sleeps when idle, so the first reply after a quiet spell can take up to a minute.
+`render.yaml` sets everything up: an always-on server in Singapore and the `bot.rivalsports.in` domain. It starts on Render's free plan, which sleeps after 15 minutes without messages, so the first reply after a quiet spell can take up to a minute. Once real patients use the bot, switch the bot service to the Starter plan (about $7/month, always awake) under **Settings > Instance Type**.
 
 1. Put this folder in a **private** GitHub repository. `.gitignore` keeps `.env` out of it.
 2. On https://render.com, click **New > Blueprint** and pick the repository.
