@@ -23,7 +23,8 @@ SCREENSHOT_TYPES = {"image", "document"}
 KEYWORDS = [
     ("7", ["emergency", "urgent", "accident", "severe pain", "help me"]),
     ("6", ["book", "appointment", "slot", "visit", "consult", "register", "registration", "form", "payment", "pay", "upi"]),
-    ("1", ["service", "treatment", "physio", "acl", "knee", "shoulder", "arthritis", "rehab", "injury", "pain", "tkr", "thr"]),
+    ("1", ["service", "treatment", "physio", "acl", "knee", "shoulder", "arthritis", "rehab", "injury", "pain", "tkr", "thr",
+           "pcl", "meniscus", "ligament", "needling", "dry needling", "sports"]),
     ("2", ["address", "location", "where", "map", "direction", "rajarhat", "vivekananda", "branch", "centre", "center"]),
     ("3", ["time", "timing", "open", "close", "hours", "when"]),
     ("4", ["charge", "fee", "price", "cost", "rate", "how much"]),

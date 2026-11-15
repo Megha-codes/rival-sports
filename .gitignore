@@ -2,3 +2,6 @@
 bookings.csv
 __pycache__/
 *.pyc
+
+# Original full-size photos (the website uses the optimized copies in website/img/)
+website/assets/

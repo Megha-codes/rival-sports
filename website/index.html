@@ -3,13 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rival Sports | Sports Physio &amp; Rehab in Kolkata</title>
-<meta name="description" content="Rival Sports and Performance Plus Physio, led by Dr. Dibyajit Mitra. Sports and gym injury rehab, ACL rehab, post-operative rehab, and pain management in Rajarhat and Vivekananda Sarani, Kolkata. Open 6:30 AM to 11 PM daily.">
+<title>Rival Sports Rehab | Sports Physio &amp; Rehab in Kolkata</title>
+<meta name="description" content="Rival Sports Rehab and Performance Plus Physio, led by Dr. Dibyajit Mitra. Sports and gym injury rehab, ACL, PCL and meniscus rehab, dry needling, post-operative rehab, and pain management in Rajarhat and Vivekananda Sarani, Kolkata. Open 6:30 AM to 11 PM daily.">
 <meta name="theme-color" content="#0a0a0a">
-<meta property="og:title" content="Rival Sports | Sports Physio & Rehab in Kolkata">
+<meta property="og:title" content="Rival Sports Rehab | Sports Physio & Rehab in Kolkata">
 <meta property="og:description" content="Sports and gym injury rehab, ACL rehab, post-op recovery and pain management. Two centres in Kolkata, open every day.">
 <meta property="og:url" content="https://rivalsports.in/">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://rivalsports.in/img/gym-interior.jpg">
 <link rel="canonical" href="https://rivalsports.in/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a0a0a'/%3E%3Cpath d='M14 46 L30 14 H50 L34 46 Z' fill='%23e10600'/%3E%3Ctext x='32' y='41' font-family='Arial Black,Arial' font-weight='900' font-size='26' fill='%23fff' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +20,8 @@
 {
   "@context": "https://schema.org",
   "@type": "MedicalBusiness",
-  "name": "Rival Sports - Performance Plus Physio",
+  "name": "Rival Sports Rehab - Performance Plus Physio",
+  "image": "https://rivalsports.in/img/gym-interior.jpg",
   "url": "https://rivalsports.in/",
   "telephone": "+91-9804218167",
   "openingHours": "Mo-Su 06:30-23:00",
@@ -108,15 +110,17 @@
     background-image: repeating-linear-gradient(115deg, transparent 0 120px, rgba(255,255,255,.035) 120px 122px);
     pointer-events: none;
   }
-  .hero-slash {
-    position: absolute; right: -8%; top: -10%; width: 46%; height: 130%;
-    background: linear-gradient(160deg, var(--red) 0%, var(--red-deep) 100%);
-    transform: skewX(-16deg); opacity: .92;
+  /* gym photo in a slanted panel with a red edge */
+  .hero-photo {
+    position: absolute; right: -10%; top: 0; width: 60%; height: 100%;
+    transform: skewX(-12deg); transform-origin: bottom left; overflow: hidden;
+    border-left: 14px solid var(--red); box-shadow: -30px 0 0 0 rgba(225,6,0,.25);
   }
-  .hero-slash::after {
-    content: ""; position: absolute; left: -46px; top: 0; width: 18px; height: 100%; background: var(--red);
+  .hero-photo img {
+    position: absolute; inset: 0 -12% 0 -12%; width: 124%; height: 100%; object-fit: cover; object-position: 42% center;
+    transform: skewX(12deg);
   }
-  .hero-art { position: absolute; right: 3%; top: 50%; transform: translateY(-50%); width: min(40vw, 520px); z-index: 1; }
+  .hero-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,10,10,.55) 0%, rgba(10,10,10,.05) 45%, rgba(10,10,10,.25) 100%); }
   .hero .wrap { position: relative; z-index: 2; }
   .hero-content { max-width: 680px; }
   .hero h1 { font-size: clamp(64px, 11vw, 148px); margin: 18px 0 8px; text-transform: uppercase; }
@@ -153,12 +157,24 @@
   .stat .label { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
 
   /* ---------- services ---------- */
-  .services { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; }
+  .programs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-bottom: 18px; }
+  .prog { display: flex; flex-direction: column; background: var(--panel); border: 1px solid var(--line); overflow: hidden; transition: transform .3s, border-color .3s; }
+  .prog:hover { transform: translateY(-6px); border-color: var(--red); }
+  .prog-img { display: block; position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: #000; }
+  .prog-img img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .5s; }
+  .prog:hover .prog-img img { transform: scale(1.04); }
+  .zoom { position: absolute; right: 10px; bottom: 10px; width: 36px; height: 36px; display: grid; place-items: center; background: rgba(10,10,10,.75); color: #fff; }
+  .zoom svg { width: 18px; height: 18px; }
+  .prog-body { padding: 22px 22px 24px; border-top: 4px solid var(--red); }
+  .prog-body h3 { font-family: var(--display); font-weight: 400; font-size: 28px; letter-spacing: .03em; line-height: 1; margin: 0 0 10px; text-transform: uppercase; }
+  .prog-body p { margin: 0; color: var(--muted); font-size: 14.5px; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #fff; background: var(--red); padding: 3px 8px; margin-bottom: 10px; }
+
+  .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
   .card {
-    grid-column: span 2; position: relative; padding: 34px 30px 32px; background: var(--panel); border: 1px solid var(--line);
+    position: relative; padding: 34px 30px 32px; background: var(--panel); border: 1px solid var(--line);
     overflow: hidden; transition: transform .3s, border-color .3s;
   }
-  .card:nth-child(4), .card:nth-child(5) { grid-column: span 3; }
   .card::before {
     content: ""; position: absolute; left: 0; top: 0; height: 4px; width: 0; background: var(--red); transition: width .4s;
   }
@@ -175,11 +191,26 @@
   .about::before { content: ""; position: absolute; left: -10%; top: 0; width: 30%; height: 100%; background: rgba(225,6,0,.06); transform: skewX(-16deg); }
   .about-grid { position: relative; display: grid; grid-template-columns: 1fr 1.1fr; gap: 70px; align-items: center; }
   .doc-card {
-    position: relative; aspect-ratio: 4 / 5; background: linear-gradient(160deg, #1d1d20, #0d0d0e); border: 1px solid var(--line);
+    position: relative; aspect-ratio: 4 / 5; background: #111; border: 1px solid var(--line);
     display: flex; flex-direction: column; justify-content: flex-end; padding: 34px; overflow: hidden;
+    box-shadow: 18px 18px 0 0 var(--red);
   }
-  .doc-card .big-r { position: absolute; top: -40px; right: -30px; font-family: var(--display); font-size: 420px; line-height: 1; color: rgba(225,6,0,.16); }
-  .doc-card svg.body { position: absolute; inset: 8% 0 auto; margin: 0 auto; width: 70%; color: #2e2e33; }
+  .doc-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
+  .doc-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(10,10,10,.92) 100%); }
+  .doc-card .name, .doc-card .role { z-index: 1; }
+
+  /* ---------- success stories ---------- */
+  .stories { overflow: hidden; }
+  .story-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .story { position: relative; display: block; aspect-ratio: 9 / 16; overflow: hidden; border: 1px solid var(--line); background: #000; transition: transform .3s, border-color .3s; }
+  .story:hover { transform: translateY(-6px); border-color: var(--red); }
+  .story img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ---------- lightbox ---------- */
+  .lightbox { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 96vh; overflow: visible; }
+  .lightbox::backdrop { background: rgba(0,0,0,.88); }
+  .lightbox img { display: block; max-width: 96vw; max-height: 90vh; width: auto; height: auto; }
+  .lightbox-close { position: absolute; top: -48px; right: 0; width: 40px; height: 40px; border: 0; background: var(--red); color: #fff; font-size: 26px; line-height: 1; cursor: pointer; }
   .doc-card .name { position: relative; font-family: var(--display); font-size: 44px; line-height: 1; }
   .doc-card .role { position: relative; color: var(--red-hot); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; font-size: 13px; margin-top: 8px; }
   .about h2 { font-size: clamp(44px, 6vw, 76px); text-transform: uppercase; margin: 14px 0 22px; }
@@ -301,20 +332,21 @@
 
   /* ---------- responsive ---------- */
   @media (max-width: 980px) {
-    .hero-slash { width: 60%; right: -30%; opacity: .55; }
-    .hero-art { opacity: .35; width: 70vw; right: -12%; }
+    .hero-photo { inset: 0; width: 100%; transform: none; border-left: 0; box-shadow: none; }
+    .hero-photo img { inset: 0; width: 100%; transform: none; object-position: 50% center; }
+    .hero-photo::after { background: linear-gradient(180deg, rgba(10,10,10,.72) 0%, rgba(10,10,10,.82) 55%, rgba(10,10,10,.95) 100%); }
+    .programs { grid-template-columns: 1fr 1fr; }
+    .story-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .stats { grid-template-columns: repeat(2, 1fr); }
     .reel-grid { grid-template-columns: repeat(2, 1fr); }
     .stat:nth-child(2) { border-right: 0; }
     .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
     .services { grid-template-columns: 1fr 1fr; }
-    .card, .card:nth-child(4), .card:nth-child(5) { grid-column: span 1; }
-    .card:nth-child(5) { grid-column: span 2; }
+    .card:last-child { grid-column: span 2; }
     .about-grid { grid-template-columns: 1fr; gap: 44px; }
     .book-grid { grid-template-columns: 1fr; gap: 40px; }
     .book-info { position: static; }
-    .doc-card { aspect-ratio: 16 / 10; }
-    .doc-card svg.body { width: 34%; inset: 6% 8% auto auto; margin: 0; }
+    .doc-card { width: 100%; max-width: 460px; }
     .steps { grid-template-columns: 1fr 1fr; row-gap: 44px; }
     .foot-grid { grid-template-columns: 1fr 1fr; }
     .foot-grid > :first-child { grid-column: span 2; }
@@ -331,12 +363,18 @@
     .menu-toggle { display: block; }
     .section { padding: 80px 0; }
     .services { grid-template-columns: 1fr; }
-    .card:nth-child(5) { grid-column: span 1; }
+    .card:last-child { grid-column: span 1; }
+    .programs { gap: 12px; }
+    .prog-body { padding: 16px 14px 18px; }
+    .prog-body h3 { font-size: 22px; }
+    .prog-body p { font-size: 13.5px; }
+    /* stories become a swipeable row */
+    .story-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px; padding-bottom: 12px; margin: 0 -20px; padding-inline: 20px; }
+    .story { flex: 0 0 72%; scroll-snap-align: center; }
     .band-grid { grid-template-columns: 1fr; }
     .band-item { border-right: 0; border-bottom: 2px solid rgba(0,0,0,.2); padding: 30px 4px; }
     .band-item:last-child { border-bottom: 0; }
     .locs { grid-template-columns: 1fr; }
-    .doc-card { aspect-ratio: 4 / 3; }
     .hero-ctas .btn, .book-ctas .btn { flex: 1 1 100%; justify-content: center; }
     .form-frame iframe { height: 2300px; }
     /* reels become a swipeable row */
@@ -372,6 +410,7 @@
   <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r=".6" fill="currentColor"/></g></symbol>
   <symbol id="i-form" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3.5V5h6V3.5M9 10h6M9 14h6M9 18h3"/></g></symbol>
   <symbol id="i-info" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5h.01"/></g></symbol>
+  <symbol id="i-zoom" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/></g></symbol>
   <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4.5v15l13-7.5z"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
 </svg>
@@ -388,6 +427,7 @@
     <nav class="nav-links" id="nav-links">
       <a href="#services">Services</a>
       <a href="#about">About</a>
+      <a href="#stories">Stories</a>
       <a href="#process">How it works</a>
       <a href="#locations">Centres</a>
       <a class="btn btn-red" href="#book">Register &amp; book</a>
@@ -399,26 +439,16 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-slash" aria-hidden="true"></div>
-    <svg class="hero-art" viewBox="0 0 520 520" aria-hidden="true">
-      <!-- dumbbell -->
-      <g transform="rotate(-24 260 260)" fill="#0a0a0a">
-        <rect x="70" y="200" width="44" height="120" rx="6"/>
-        <rect x="120" y="180" width="40" height="160" rx="6"/>
-        <rect x="160" y="246" width="200" height="28" rx="6"/>
-        <rect x="360" y="180" width="40" height="160" rx="6"/>
-        <rect x="406" y="200" width="44" height="120" rx="6"/>
-      </g>
-      <!-- heartbeat line -->
-      <polyline class="pulse-line" points="0,400 120,400 150,400 175,340 205,460 235,300 262,430 285,400 520,400"
-        fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+    <div class="hero-photo">
+      <img src="img/gym-interior.jpg" srcset="img/gym-interior-small.jpg 900w, img/gym-interior.jpg 1672w" sizes="(max-width: 980px) 100vw, 60vw"
+        alt="Inside the Rival Sports rehab gym, with the RISE RIVAL REPEAT sign" fetchpriority="high" width="1672" height="941">
+    </div>
 
     <div class="wrap">
       <div class="hero-content">
         <span class="eyebrow">Performance Plus Physio · Kolkata</span>
         <h1 class="display">Train hard.<br><span class="outline">Recover</span> <span class="red">harder.</span></h1>
-        <p class="lead">Sports and gym injury rehab, ACL recovery, post-surgery rehab and pain management, led by <strong>Dr. Dibyajit Mitra</strong>. Get back to the game stronger than before.</p>
+        <p class="lead">Sports and gym injury rehab, ACL, PCL and meniscus recovery, dry needling and pain management, led by <strong>Dr. Dibyajit Mitra</strong>. Get back to the game stronger than before.</p>
         <div class="hero-ctas">
           <a class="btn btn-red" href="#book">
             <svg aria-hidden="true"><use href="#i-form"/></svg> Register &amp; book
@@ -437,8 +467,8 @@
 
   <div class="ticker" aria-hidden="true">
     <div class="ticker-track">
-      <span>Sports injury rehab</span><span>ACL rehab</span><span>Post-op recovery</span><span>Bone &amp; joint care</span><span>Pain management</span><span>Move better</span><span>Feel stronger</span><span>Live pain-free</span>
-      <span>Sports injury rehab</span><span>ACL rehab</span><span>Post-op recovery</span><span>Bone &amp; joint care</span><span>Pain management</span><span>Move better</span><span>Feel stronger</span><span>Live pain-free</span>
+      <span>Sports injury rehab</span><span>ACL &amp; meniscus rehab</span><span>PCL rehab</span><span>Dry needling</span><span>Post-op recovery</span><span>Pain management</span><span>Rise · Rival · Repeat</span>
+      <span>Sports injury rehab</span><span>ACL &amp; meniscus rehab</span><span>PCL rehab</span><span>Dry needling</span><span>Post-op recovery</span><span>Pain management</span><span>Rise · Rival · Repeat</span>
     </div>
   </div>
 
@@ -449,7 +479,7 @@
         <div class="stat"><div class="num">2</div><div class="label">Centres in Kolkata</div></div>
         <div class="stat"><div class="num">7<small>days</small></div><div class="label">Open every week</div></div>
         <div class="stat"><div class="num">16.5<small>hrs</small></div><div class="label">Open daily, 6:30 AM – 11 PM</div></div>
-        <div class="stat"><div class="num">5</div><div class="label">Specialised programmes</div></div>
+        <div class="stat"><div class="num">7</div><div class="label">Specialised programmes</div></div>
       </div>
     </div>
   </section>
@@ -465,33 +495,65 @@
         <p>Whether you tore a ligament on the field, hurt your shoulder under the bar, or just had surgery, we build a plan around you and your goals.</p>
       </div>
 
+      <!-- Picture cards: click a picture to see it full size -->
+      <div class="programs">
+        <article class="prog reveal">
+          <a class="prog-img" href="img/service-sports-rehab.jpg" data-lightbox aria-label="View the Rehab to Performance poster full size">
+            <img src="img/service-sports-rehab.jpg" alt="Rehab to Performance: an athlete goes from injury to competing again" loading="lazy" width="720" height="1280">
+            <span class="zoom"><svg aria-hidden="true"><use href="#i-zoom"/></svg></span>
+          </a>
+          <div class="prog-body">
+            <h3>Sports &amp; Gym Injury Rehab</h3>
+            <p>Sprains, strains, tendon problems and lifting injuries. We treat the injury, fix how you move, and get you back to competing.</p>
+          </div>
+        </article>
+        <article class="prog reveal">
+          <a class="prog-img" href="img/service-acl-meniscus.jpg" data-lightbox aria-label="View the ACL and Meniscus Rehab poster full size">
+            <img src="img/service-acl-meniscus.jpg" alt="ACL and meniscus rehab: from walking with a walker to squatting with a barbell" loading="lazy" width="720" height="1280">
+            <span class="zoom"><svg aria-hidden="true"><use href="#i-zoom"/></svg></span>
+          </a>
+          <div class="prog-body">
+            <h3>ACL &amp; Meniscus Rehab</h3>
+            <p>Surgical and non-surgical rehab, from the first steps after injury to running, cutting and full return to sport.</p>
+          </div>
+        </article>
+        <article class="prog reveal">
+          <a class="prog-img" href="img/service-pcl.jpg" data-lightbox aria-label="View the PCL Injury Rehab poster full size">
+            <img src="img/service-pcl.jpg" alt="PCL injury rehab: balance training and braced leg exercises" loading="lazy" width="720" height="1280">
+            <span class="zoom"><svg aria-hidden="true"><use href="#i-zoom"/></svg></span>
+          </a>
+          <div class="prog-body">
+            <h3>PCL Injury Rehab</h3>
+            <p>Stability, strength and control for the knee, step by step, until you're ready to perform again.</p>
+          </div>
+        </article>
+        <article class="prog reveal">
+          <a class="prog-img" href="img/service-dry-needling.jpg" data-lightbox aria-label="View the Dry Needling poster full size">
+            <img src="img/service-dry-needling.jpg" alt="Dry needling for pain relief on a patient's shoulder" loading="lazy" width="720" height="1280">
+            <span class="zoom"><svg aria-hidden="true"><use href="#i-zoom"/></svg></span>
+          </a>
+          <div class="prog-body">
+            <h3>Dry Needling</h3>
+            <p>Targeted relief for tight, painful muscles. Reduces tension, eases pain and helps you move better.</p>
+          </div>
+        </article>
+      </div>
+
       <div class="services">
         <article class="card reveal">
-          <span class="idx">01</span>
-          <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5v11M17.5 6.5v11M3.5 9v6M20.5 9v6M6.5 12h11"/></g></svg></div>
-          <h3>Sports &amp; Gym Injury Rehab</h3>
-          <p>Sprains, strains, tendon problems and lifting injuries. We treat the injury, fix how you move, and get you training again safely.</p>
-        </article>
-        <article class="card reveal">
-          <span class="idx">02</span>
-          <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6c0 1.5 1 2.5 3 2.5s3-1 3-2.5V2"/><path d="M9 22v-6c0-1.5 1-2.5 3-2.5s3 1 3 2.5v6"/><path d="M5 12h3M16 12h3"/></g></svg></div>
-          <h3>ACL Rehabilitation</h3>
-          <p>Step-by-step ACL rehab, before and after surgery, from first steps back to running, cutting and full return to sport.</p>
-        </article>
-        <article class="card reveal">
-          <span class="idx">03</span>
+          <span class="idx">05</span>
           <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18" opacity=".35"/><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M12 8v8M8 12h8"/></g></svg></div>
           <h3>Post-Operative Rehab</h3>
           <p>Guided recovery after knee or hip replacement (TKR, THR) and other surgeries, to bring back movement, strength and confidence.</p>
         </article>
         <article class="card reveal">
-          <span class="idx">04</span>
+          <span class="idx">06</span>
           <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.5 2.5 0 0 1 2.2 3.8A2.5 2.5 0 0 1 17.2 11L11 17.2a2.5 2.5 0 0 1-4.2 2A2.5 2.5 0 0 1 3 17a2.5 2.5 0 0 1 3.8-2.2L13 8.8A2.5 2.5 0 0 1 17 3Z"/></g></svg></div>
           <h3>Bone &amp; Joint Care</h3>
           <p>Diagnosis-led treatment for stiff, weak or painful joints, so everyday movement feels easy again.</p>
         </article>
         <article class="card reveal">
-          <span class="idx">05</span>
+          <span class="idx">07</span>
           <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l2.5-6 4 12 2.5-6H22"/></g></svg></div>
           <h3>Chronic Pain Management</h3>
           <p>Long-term relief for arthritis, frozen shoulder, back and neck pain, built on hands-on therapy and targeted exercise.</p>
@@ -503,19 +565,15 @@
   <!-- ABOUT -->
   <section class="section about" id="about">
     <div class="wrap about-grid">
-      <div class="doc-card reveal" aria-hidden="true">
-        <span class="big-r">R</span>
-        <svg class="body" viewBox="0 0 200 300" fill="currentColor">
-          <circle cx="100" cy="38" r="26"/>
-          <path d="M60 80h80l18 70-16 6-14-44v70l12 108h-22l-14-90h-8l-14 90H60l12-108v-70l-14 44-16-6z"/>
-        </svg>
+      <div class="doc-card reveal">
+        <img src="img/dr-dibyajit-mitra.jpg" alt="Dr. Dibyajit Mitra, sports physiotherapist" loading="lazy" width="900" height="1599">
         <div class="name">Dr. Dibyajit Mitra</div>
         <div class="role">MPT (Sports) · Sports Physiotherapist</div>
       </div>
       <div class="reveal">
         <span class="eyebrow">Who we are</span>
         <h2 class="display">Your comeback <span class="red">starts here.</span></h2>
-        <p>Rival Sports is home to <strong>Performance Plus Physio</strong>, led by <strong>Dr. Dibyajit Mitra</strong>. We help athletes, gym-goers and everyday people move better, feel stronger and live pain-free.</p>
+        <p>Rival Sports Rehab is home to <strong>Performance Plus Physio</strong>, led by <strong>Dr. Dibyajit Mitra</strong>. We help athletes, gym-goers and everyday people move better, feel stronger and live pain-free.</p>
         <ul class="checks">
           <li><svg aria-hidden="true"><use href="#i-check"/></svg> A personal recovery plan for every patient, never one-size-fits-all</li>
           <li><svg aria-hidden="true"><use href="#i-check"/></svg> Sport and gym know-how, so you train safely after recovery</li>
@@ -542,6 +600,33 @@
         <div class="step reveal"><div class="bar"></div><div class="n">02</div><h3>Assessment</h3><p>We look closely at your injury, how you move, and what you want to get back to.</p></div>
         <div class="step reveal"><div class="bar"></div><div class="n">03</div><h3>Your plan</h3><p>Hands-on treatment plus a progressive exercise programme made for you.</p></div>
         <div class="step reveal"><div class="bar"></div><div class="n">04</div><h3>Back in the game</h3><p>Return to sport, the gym or daily life, stronger and better prepared than before.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUCCESS STORIES: click a picture to see it full size -->
+  <section class="section stories" id="stories">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Success stories</span>
+          <h2 class="display">Real people. <span class="red">Real progress.</span></h2>
+        </div>
+        <p>From the rehab floor back to the football pitch, the gym and everyday life. Same athletes, stronger stories.</p>
+      </div>
+      <div class="story-grid">
+        <a class="story reveal" href="img/story-football-83.jpg" data-lightbox aria-label="View the From Injury to Performance story full size">
+          <img src="img/story-football-83.jpg" alt="From injury to performance: a footballer training in the rehab gym, then back on the pitch" loading="lazy" width="720" height="1280">
+          <span class="zoom"><svg aria-hidden="true"><use href="#i-zoom"/></svg></span>
+        </a>
+        <a class="story reveal" href="img/story-client-feedback.jpg" data-lightbox aria-label="View the client feedback on ACL and meniscus rehab full size">
+          <img src="img/story-client-feedback.jpg" alt="Client feedback on non-surgical ACL and meniscus rehab: the team kept me motivated and now I'm back on track" loading="lazy" width="720" height="1280">
+          <span class="zoom"><svg aria-hidden="true"><use href="#i-zoom"/></svg></span>
+        </a>
+        <a class="story reveal" href="img/story-football-56.jpg" data-lightbox aria-label="View the From Injury to Performance story full size">
+          <img src="img/story-football-56.jpg" alt="From injury to performance: rehab, strength, mobility and return to sport for a footballer" loading="lazy" width="720" height="1280">
+          <span class="zoom"><svg aria-hidden="true"><use href="#i-zoom"/></svg></span>
+        </a>
       </div>
     </div>
   </section>
@@ -699,11 +784,16 @@
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© <span id="year">2026</span> Rival Sports · Performance Plus Physio. All rights reserved.</span>
+      <span>© <span id="year">2026</span> Rival Sports Rehab · Performance Plus Physio. All rights reserved.</span>
       <span>rivalsports.in</span>
     </div>
   </div>
 </footer>
+
+<dialog class="lightbox" id="lightbox" aria-label="Full-size picture">
+  <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
+  <img alt="">
+</dialog>
 
 <a class="ig-float" href="https://www.instagram.com/thesportsorthophysio/" target="_blank" rel="noopener" aria-label="Follow us on Instagram">
   <svg aria-hidden="true"><use href="#i-ig"/></svg>
@@ -726,6 +816,23 @@
     links.classList.remove("open");
     toggle.setAttribute("aria-expanded", "false");
   }));
+
+  // Full-size picture viewer. Without JavaScript (or old browsers), the link simply opens the picture.
+  const lightbox = document.getElementById("lightbox");
+  if (lightbox && typeof lightbox.showModal === "function") {
+    const lbImg = lightbox.querySelector("img");
+    document.querySelectorAll("[data-lightbox]").forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        const thumb = link.querySelector("img");
+        lbImg.src = link.getAttribute("href");
+        lbImg.alt = thumb ? thumb.alt : "";
+        lightbox.showModal();
+      });
+    });
+    lightbox.querySelector(".lightbox-close").addEventListener("click", () => lightbox.close());
+    lightbox.addEventListener("click", e => { if (e.target === lightbox) lightbox.close(); });
+  }
 
   // Instagram reels: build each card, then load Instagram's embed script only when the section is near the screen.
   // If Instagram's script can't load (blocked, offline), visitors still see a tappable card that opens the reel.

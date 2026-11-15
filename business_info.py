@@ -2,7 +2,7 @@
 
 from urllib.parse import quote_plus
 
-BUSINESS_NAME = "Rival Sports"
+BUSINESS_NAME = "Rival Sports Rehab"
 CLINIC_NAME = "Performance Plus Physio"
 DOCTOR = "Dr. Dibyajit Mitra"
 PHONE = "+91 9804218167"
@@ -26,10 +26,12 @@ SERVICE_AREA = "Kolkata and its surrounding areas"
 
 SERVICES = [
     "Sports & Gym Injury Rehabilitation",
+    "ACL & Meniscus Rehabilitation (surgical and non-surgical)",
+    "PCL Injury Rehabilitation",
+    "Dry Needling for Pain Relief",
     "Post-Operative Rehabilitation (e.g. TKR, THR)",
     "Bone & Joint Care",
     "Chronic Pain Management (e.g. Arthritis, Frozen Shoulder)",
-    "ACL Rehabilitation",
 ]
 
 
