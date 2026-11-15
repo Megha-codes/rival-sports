@@ -117,7 +117,7 @@
     border-left: 14px solid var(--red); box-shadow: -30px 0 0 0 rgba(225,6,0,.25);
   }
   .hero-photo img {
-    position: absolute; inset: 0 -12% 0 -12%; width: 124%; height: 100%; object-fit: cover; object-position: 42% center;
+    position: absolute; inset: 0 auto 0 -24%; width: 124%; height: 100%; object-fit: cover; object-position: 50% 45%;
     transform: skewX(12deg);
   }
   .hero-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,10,10,.55) 0%, rgba(10,10,10,.05) 45%, rgba(10,10,10,.25) 100%); }
@@ -406,7 +406,7 @@
   /* ---------- responsive ---------- */
   @media (max-width: 980px) {
     .hero-photo { inset: 0; width: 100%; transform: none; border-left: 0; box-shadow: none; }
-    .hero-photo img { inset: 0; width: 100%; transform: none; object-position: 50% center; }
+    .hero-photo img { inset: 0; width: 100%; transform: none; object-position: 50% 42%; }
     .hero-photo::after { background: linear-gradient(180deg, rgba(10,10,10,.72) 0%, rgba(10,10,10,.82) 55%, rgba(10,10,10,.95) 100%); }
     .programs { grid-template-columns: 1fr 1fr; }
     .story-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
@@ -516,8 +516,8 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-photo">
-      <img src="img/gym-interior.jpg" srcset="img/gym-interior-small.jpg 900w, img/gym-interior.jpg 1672w" sizes="(max-width: 980px) 100vw, 60vw"
-        alt="Inside the Rival Sports rehab gym, with the RISE RIVAL REPEAT sign" fetchpriority="high" width="1672" height="941">
+      <img src="img/hero.jpg" srcset="img/hero-small.jpg 800w, img/hero.jpg 1086w" sizes="(max-width: 980px) 100vw, 60vw"
+        alt="Inside the Rival Sports Rehab centre, with the RISE RIVAL REPEAT sign" fetchpriority="high" width="1086" height="1448">
     </div>
 
     <div class="wrap">
