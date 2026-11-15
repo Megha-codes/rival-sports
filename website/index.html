@@ -274,13 +274,13 @@
 
   /* ---------- floating whatsapp ---------- */
   .wa-float {
-    position: fixed; right: 20px; bottom: 20px; z-index: 60; width: 60px; height: 60px; border-radius: 50%;
+    position: fixed; right: 22px; bottom: 102px; z-index: 60; width: 56px; height: 56px; border-radius: 50%;
     background: #25d366; color: #fff; display: grid; place-items: center; box-shadow: 0 10px 30px rgba(0,0,0,.5);
     transition: transform .2s;
   }
   .wa-float:hover, .ig-float:hover { transform: scale(1.08); }
   .ig-float {
-    position: fixed; right: 20px; bottom: 92px; z-index: 60; width: 60px; height: 60px; border-radius: 50%;
+    position: fixed; right: 22px; bottom: 170px; z-index: 60; width: 56px; height: 56px; border-radius: 50%;
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
     color: #fff; display: grid; place-items: center; box-shadow: 0 10px 30px rgba(0,0,0,.5); transition: transform .2s;
   }
@@ -325,6 +325,79 @@
   .wa-float svg { width: 32px; height: 32px; }
   .wa-float::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid #25d366; animation: ring 2.2s ease-out infinite; }
   @keyframes ring { from { transform: scale(1); opacity: .8; } to { transform: scale(1.6); opacity: 0; } }
+
+  /* ---------- website chatbot ---------- */
+  .chat-launcher {
+    position: fixed; right: 20px; bottom: 20px; z-index: 72; width: 64px; height: 64px; border-radius: 50%; border: 0; cursor: pointer;
+    background: var(--red); color: #fff; display: grid; place-items: center; box-shadow: 0 12px 30px rgba(225,6,0,.45); transition: transform .2s, background .2s;
+  }
+  .chat-launcher:hover { transform: scale(1.06); background: var(--red-hot); }
+  .chat-launcher svg { width: 30px; height: 30px; }
+  .chat-launcher .ic-close { display: none; }
+  .chat-open .chat-launcher .ic-chat { display: none; }
+  .chat-open .chat-launcher .ic-close { display: block; }
+  .chat-launcher .dot { position: absolute; top: 4px; right: 4px; width: 14px; height: 14px; border-radius: 50%; background: #22c55e; border: 2px solid var(--black); }
+  .chat-open .chat-launcher .dot, .chat-seen .chat-launcher .dot { display: none; }
+  .chat-open .wa-float, .chat-open .ig-float { opacity: 0; pointer-events: none; }
+
+  .chat-teaser {
+    position: fixed; right: 96px; bottom: 30px; z-index: 71; max-width: 230px; padding: 12px 34px 12px 14px;
+    background: var(--white); color: var(--black); font-size: 14px; font-weight: 600; line-height: 1.35; cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,.45); border-left: 4px solid var(--red);
+    opacity: 0; transform: translateX(12px); pointer-events: none; transition: opacity .3s, transform .3s;
+  }
+  .chat-teaser.show { opacity: 1; transform: none; pointer-events: auto; }
+  .chat-teaser small { display: block; font-weight: 500; color: #555; margin-top: 2px; }
+  .chat-teaser button { position: absolute; top: 4px; right: 4px; border: 0; background: none; font-size: 18px; line-height: 1; color: #777; cursor: pointer; padding: 4px 6px; }
+
+  .chat-panel {
+    position: fixed; right: 20px; bottom: 98px; z-index: 72; width: 380px; height: min(620px, calc(100vh - 130px));
+    display: flex; flex-direction: column; background: #121214; border: 1px solid var(--line); box-shadow: 0 30px 80px rgba(0,0,0,.6);
+    opacity: 0; transform: translateY(16px) scale(.98); transform-origin: bottom right; pointer-events: none; visibility: hidden;
+    transition: opacity .25s, transform .25s, visibility 0s .25s;
+  }
+  .chat-open .chat-panel { opacity: 1; transform: none; pointer-events: auto; visibility: visible; transition: opacity .25s, transform .25s; }
+  .chat-head { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--red); color: #fff; }
+  .chat-head .av { width: 40px; height: 40px; flex: none; background: var(--black); display: grid; place-items: center; clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%); }
+  .chat-head .av svg { width: 30px; height: 30px; }
+  .chat-head strong { display: block; font-size: 15px; line-height: 1.2; }
+  .chat-head span { font-size: 12px; opacity: .9; display: flex; align-items: center; gap: 6px; }
+  .chat-head span::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
+  .chat-head .x { margin-left: auto; border: 0; background: rgba(0,0,0,.2); color: #fff; width: 34px; height: 34px; font-size: 22px; line-height: 1; cursor: pointer; }
+  .chat-body { flex: 1; overflow-y: auto; padding: 16px 14px; display: flex; flex-direction: column; gap: 10px; overscroll-behavior: contain; scrollbar-width: thin; }
+  .msg { max-width: 88%; padding: 10px 13px; font-size: 14.5px; line-height: 1.5; word-wrap: break-word; animation: pop .2s ease-out; }
+  @keyframes pop { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  .msg.bot { align-self: flex-start; background: #1f1f23; border: 1px solid #2c2c31; color: #ececee; border-top-left-radius: 0; }
+  .msg.user { align-self: flex-end; background: var(--red); color: #fff; }
+  .msg p { margin: 0 0 8px; } .msg p:last-child { margin-bottom: 0; }
+  .msg ul, .msg ol { margin: 4px 0 8px; padding-left: 20px; } .msg li { margin: 2px 0; }
+  .msg strong { color: #fff; }
+  .msg .note { font-size: 13px; color: #fca5a5; }
+  .msg-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .msg-actions a, .msg-actions button {
+    display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; font: 600 13px var(--body); cursor: pointer;
+    background: var(--white); color: var(--black); border: 0; text-decoration: none;
+  }
+  .msg-actions a.red, .msg-actions button.red { background: var(--red); color: #fff; }
+  .msg-actions a.wa { background: #25d366; color: #fff; }
+  .chips { display: flex; flex-wrap: wrap; gap: 7px; padding-top: 2px; }
+  .chips button {
+    border: 1px solid var(--red); background: transparent; color: #fff; padding: 7px 11px; font: 600 12.5px var(--body); cursor: pointer; border-radius: 999px;
+    transition: background .15s;
+  }
+  .chips button:hover, .chips button:focus-visible { background: var(--red); }
+  .typing { align-self: flex-start; display: flex; gap: 4px; padding: 12px 14px; background: #1f1f23; border: 1px solid #2c2c31; }
+  .typing i { width: 7px; height: 7px; border-radius: 50%; background: #9a9aa0; animation: blink 1s infinite; }
+  .typing i:nth-child(2) { animation-delay: .15s; } .typing i:nth-child(3) { animation-delay: .3s; }
+  @keyframes blink { 0%, 80%, 100% { opacity: .3; } 40% { opacity: 1; } }
+  .chat-input { display: flex; gap: 8px; padding: 12px; border-top: 1px solid var(--line); background: #0e0e10; }
+  .chat-input input {
+    flex: 1; min-width: 0; padding: 12px 14px; background: #1b1b1e; border: 1px solid #2c2c31; color: var(--white); font: 15px var(--body);
+  }
+  .chat-input input:focus { outline: none; border-color: var(--red); }
+  .chat-input button { width: 46px; flex: none; border: 0; background: var(--red); color: #fff; cursor: pointer; display: grid; place-items: center; }
+  .chat-input button svg { width: 20px; height: 20px; }
+  .chat-foot { text-align: center; font-size: 11px; color: #6b6b72; padding: 0 0 8px; background: #0e0e10; }
 
   /* ---------- reveal ---------- */
   .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
@@ -382,6 +455,9 @@
     .reel { flex: 0 0 80%; scroll-snap-align: center; }
   }
   @media (max-width: 520px) {
+    .chat-panel { left: 8px; right: 8px; bottom: 92px; width: auto; height: min(560px, calc(100svh - 110px)); }
+    .chat-teaser { right: 92px; max-width: calc(100vw - 112px); }
+    .chat-input input { font-size: 16px; } /* stops iPhone zooming in on the input */
     .wrap { padding: 0 16px; }
     .steps { grid-template-columns: 1fr; }
     .stat { padding: 26px 18px; }
@@ -795,6 +871,31 @@
   <img alt="">
 </dialog>
 
+<!-- WEBSITE CHATBOT (same menu and answers as the WhatsApp bot; texts are in the CHAT object in the script below) -->
+<div class="chat-teaser" id="chat-teaser" role="button" tabindex="0" aria-label="Open chat">
+  👋 Hi! Need help or want to book?
+  <small>Ask us anything, we reply instantly.</small>
+  <button type="button" aria-label="Dismiss">&times;</button>
+</div>
+<section class="chat-panel" id="chat-panel" role="dialog" aria-label="Chat with Rival Sports Rehab" aria-hidden="true">
+  <div class="chat-head">
+    <div class="av" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M10 52 L30 12 H56 L36 52 Z" fill="#e10600"/><text x="33" y="44" font-family="Bebas Neue, Impact, sans-serif" font-size="34" fill="#fff" text-anchor="middle">R</text></svg></div>
+    <div><strong>Rival Sports Assistant</strong><span>Online · replies instantly</span></div>
+    <button class="x" type="button" aria-label="Close chat">&times;</button>
+  </div>
+  <div class="chat-body" id="chat-body" aria-live="polite"></div>
+  <form class="chat-input" id="chat-form" autocomplete="off">
+    <input id="chat-text" type="text" placeholder="Type a message, e.g. timings" aria-label="Type your message" maxlength="300">
+    <button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 20.5 21.5 12 3 3.5 3 10l12 2-12 2z"/></svg></button>
+  </form>
+  <div class="chat-foot">Automated assistant · For emergencies call +91 98042 18167</div>
+</section>
+<button class="chat-launcher" id="chat-launcher" type="button" aria-label="Open chat" aria-controls="chat-panel" aria-expanded="false">
+  <svg class="ic-chat" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm3 6.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Zm5 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Zm5 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z"/></svg>
+  <svg class="ic-close" viewBox="0 0 24 24" aria-hidden="true"><path stroke="currentColor" stroke-width="2.6" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></svg>
+  <span class="dot" aria-hidden="true"></span>
+</button>
+
 <a class="ig-float" href="https://www.instagram.com/thesportsorthophysio/" target="_blank" rel="noopener" aria-label="Follow us on Instagram">
   <svg aria-hidden="true"><use href="#i-ig"/></svg>
 </a>
@@ -864,6 +965,232 @@
   } else {
     loadInstagram();
   }
+
+  // ================= WEBSITE CHATBOT =================
+  // Same menu, keywords and answers as the WhatsApp bot (business_info.py). Update both if details change.
+  (function () {
+    const CHAT = {
+      phone: "+91 98042 18167",
+      tel: "tel:+919804218167",
+      wa: "https://wa.me/919804218167",
+      form: "https://forms.gle/1ZQy8KrBSV5LBSKR9",
+      timings: "6:30 AM to 11:00 PM",
+      charges: "₹1,000",
+      area: "Kolkata and its surrounding areas",
+      services: [
+        "Sports & Gym Injury Rehabilitation",
+        "ACL & Meniscus Rehabilitation (surgical and non-surgical)",
+        "PCL Injury Rehabilitation",
+        "Dry Needling for Pain Relief",
+        "Post-Operative Rehabilitation (e.g. TKR, THR)",
+        "Bone & Joint Care",
+        "Chronic Pain Management (e.g. Arthritis, Frozen Shoulder)"
+      ],
+      locations: [
+        { name: "Rajarhat Centre", address: "1st Floor, Purti Star, Rajarhat Main Road, Kolkata, West Bengal 700135" },
+        { name: "Vivekananda Sarani Centre", address: "87, Vivekananda Sarani, Prince Anwar Shah Connector, Next to RX VITAL, Kolkata 700078" }
+      ]
+    };
+    const maps = a => "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(a);
+    const waMsg = t => CHAT.wa + "?text=" + encodeURIComponent(t);
+
+    const MENU = [
+      ["1", "💪 Our services"], ["2", "📍 Clinic locations"], ["3", "🕕 Timings"], ["4", "💰 Charges"],
+      ["5", "🚗 Service area"], ["6", "📝 Book an appointment"], ["7", "📞 Contact / Emergency"]
+    ];
+    const GREETINGS = ["hi","hello","hey","hii","hiii","start","namaste","namaskar","good morning","good afternoon","good evening","helo","hlo"];
+    const KEYWORDS = [
+      ["7", ["emergency","urgent","accident","severe pain","help me"]],
+      ["6", ["book","appointment","slot","visit","consult","register","registration","form","payment","pay","upi","screenshot"]],
+      ["1", ["service","treatment","physio","acl","knee","shoulder","arthritis","rehab","injury","pain","tkr","thr","pcl","meniscus","ligament","needling","sports"]],
+      ["2", ["address","location","where","map","direction","rajarhat","vivekananda","branch","centre","center"]],
+      ["3", ["time","timing","open","close","hours","when"]],
+      ["4", ["charge","fee","price","cost","rate","how much"]],
+      ["5", ["area","home visit","surrounding","cover"]],
+      ["7", ["contact","call","phone","number","email","mail"]]
+    ];
+    const EMERGENCY_WORDS = ["emergency","urgent","accident","severe pain","help me"];
+
+    function detect(low) {
+      const m = low.match(/^\s*([1-7])\s*[.)]?\s*$/);
+      if (m) return m[1];
+      for (const [opt, words] of KEYWORDS) {
+        if (words.some(w => new RegExp("\\b" + w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).test(low))) return opt;
+      }
+      return null;
+    }
+
+    // Each answer: { html, actions: [{label, href, cls, scrollTo}] }
+    const A = {
+      welcome: () => ({ html:
+        "<p>🙏 <strong>Greetings from Performance Plus Physio</strong>, led by <strong>Dr. Dibyajit Mitra</strong> at <strong>Rival Sports Rehab</strong>.</p>" +
+        "<p>We are committed to helping you move better, feel stronger, and live pain-free.</p>" +
+        "<p>How can we help you? Tap an option below or type your question.</p>" }),
+      "1": () => ({ html: "<p>💪 <strong>Our Services</strong></p><ul>" + CHAT.services.map(s => "<li>" + s + "</li>").join("") +
+        "</ul><p>Reach out to us for personalised care and recovery support.</p>",
+        actions: [{ label: "📝 Book an appointment", choose: "6", cls: "red" }] }),
+      "2": () => ({ html: "<p>📍 <strong>Our Centres</strong></p>" + CHAT.locations.map((l, i) =>
+          "<p><strong>" + (i + 1) + ". " + l.name + "</strong><br>" + l.address + "</p>").join(""),
+        actions: CHAT.locations.map(l => ({ label: "🗺️ " + l.name.replace(" Centre", ""), href: maps(l.address) })) }),
+      "3": () => ({ html: "<p>🕕 <strong>Timings</strong></p><p>We are open every day from <strong>" + CHAT.timings + "</strong>.</p>" }),
+      "4": () => ({ html: "<p>💰 <strong>Charges</strong></p><p>Approximate charges: <strong>" + CHAT.charges + "</strong>.</p>" +
+        "<p>The exact fee depends on your condition and treatment plan. Call us at " + CHAT.phone + " for details.</p>",
+        actions: [{ label: "📞 Call us", href: CHAT.tel }] }),
+      "5": () => ({ html: "<p>🚗 <strong>Service Area</strong></p><p>We serve <strong>" + CHAT.area + "</strong>.</p>" }),
+      "6": () => ({ html: "<p>📝 <strong>Book an appointment</strong></p>" +
+        "<p>Please register using our form (takes about 2 minutes).</p><p><strong>How it works:</strong></p><ol>" +
+        "<li>Fill in your details, health concern and preferred date &amp; time.</li>" +
+        "<li>Pay the registration fee using the UPI QR code at the end of the form.</li>" +
+        "<li>Send the <strong>payment screenshot</strong> to us on WhatsApp.</li></ol>" +
+        "<p class='note'>⚠️ Your appointment is confirmed only after we receive the payment screenshot.</p>",
+        actions: [
+          { label: "📝 Open registration form", href: CHAT.form, cls: "red" },
+          { label: "Fill it on this page", scrollTo: "#book" },
+          { label: "📷 Send payment screenshot", href: waMsg("Hi, I have filled the registration form. Sending my payment screenshot."), cls: "wa" }
+        ] }),
+      "7": () => ({ html: "<p>📞 <strong>Contact Us</strong></p><p>Phone / WhatsApp: <strong>" + CHAT.phone + "</strong><br>Timings: " + CHAT.timings + "</p>" +
+        "<p>🚨 <strong>Emergency support:</strong> call " + CHAT.phone + " right away.</p>",
+        actions: [{ label: "📞 Call now", href: CHAT.tel, cls: "red" }, { label: "WhatsApp us", href: waMsg("Hi"), cls: "wa" }] }),
+      emergency: () => ({ html: "<p>🚨 <strong>For an emergency, please call us right now at " + CHAT.phone + ".</strong></p>" +
+        "<p>If you have a serious injury, heavy bleeding, chest pain, or cannot move a limb, please also go to the nearest hospital emergency department.</p>",
+        actions: [{ label: "📞 Call " + CHAT.phone, href: CHAT.tel, cls: "red" }] }),
+      thanks: () => ({ html: "<p>You're welcome! 🙏 Wishing you a speedy recovery. Anything else I can help with?</p>" }),
+      fallback: () => ({ html: "<p>Sorry, I didn't quite get that. 🙂 Please choose an option below, or call us at " + CHAT.phone + ".</p>" })
+    };
+
+    function answer(text) {
+      const low = (text || "").trim().toLowerCase();
+      if (!low || GREETINGS.includes(low) || ["menu","help","options","0"].includes(low)) return A.welcome();
+      const opt = detect(low);
+      if (opt === "7" && EMERGENCY_WORDS.some(w => low.includes(w))) return A.emergency();
+      if (opt) return A[opt]();
+      if (["thanks","thank you","ok","okay","thx","ty"].includes(low)) return A.thanks();
+      return A.fallback();
+    }
+
+    // ---------- UI ----------
+    const root = document.documentElement;
+    const panel = document.getElementById("chat-panel");
+    const body = document.getElementById("chat-body");
+    const launcher = document.getElementById("chat-launcher");
+    const teaser = document.getElementById("chat-teaser");
+    const form = document.getElementById("chat-form");
+    const input = document.getElementById("chat-text");
+    let started = false;
+
+    const store = {
+      get(k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } },
+      set(k, v) { try { sessionStorage.setItem(k, v); } catch (e) {} }
+    };
+    const scrollDown = () => { body.scrollTop = body.scrollHeight; };
+
+    function addUser(text) {
+      const d = document.createElement("div");
+      d.className = "msg user";
+      d.textContent = text; // visitors' text is never treated as HTML
+      body.appendChild(d);
+    }
+
+    function addBot(ans) {
+      body.querySelectorAll(".chips").forEach(c => c.remove()); // keep menu buttons only under the latest answer
+      const d = document.createElement("div");
+      d.className = "msg bot";
+      d.innerHTML = ans.html;
+      if (ans.actions && ans.actions.length) {
+        const row = document.createElement("div");
+        row.className = "msg-actions";
+        ans.actions.forEach(a => {
+          let el;
+          if (a.href) {
+            el = document.createElement("a");
+            el.href = a.href;
+            if (!a.href.startsWith("tel:")) { el.target = "_blank"; el.rel = "noopener"; }
+          } else {
+            el = document.createElement("button");
+            el.type = "button";
+            el.addEventListener("click", () => {
+              if (a.choose) choose(a.choose);
+              if (a.scrollTo) { setOpen(false); document.querySelector(a.scrollTo).scrollIntoView({ behavior: "smooth" }); }
+            });
+          }
+          el.textContent = a.label;
+          if (a.cls) el.className = a.cls;
+          row.appendChild(el);
+        });
+        d.appendChild(row);
+      }
+      body.appendChild(d);
+      const chips = document.createElement("div");
+      chips.className = "chips";
+      MENU.forEach(([opt, label]) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.textContent = label;
+        b.addEventListener("click", () => choose(opt, label));
+        chips.appendChild(b);
+      });
+      body.appendChild(chips);
+      scrollDown();
+    }
+
+    function reply(ans) {
+      const t = document.createElement("div");
+      t.className = "typing";
+      t.innerHTML = "<i></i><i></i><i></i>";
+      body.appendChild(t);
+      scrollDown();
+      setTimeout(() => { t.remove(); addBot(ans); }, 550);
+    }
+
+    function choose(opt, label) {
+      const item = MENU.find(m => m[0] === opt);
+      addUser(label || (item ? item[1] : opt));
+      reply(A[opt]());
+    }
+
+    function setOpen(open, auto) {
+      root.classList.toggle("chat-open", open);
+      panel.setAttribute("aria-hidden", String(!open));
+      launcher.setAttribute("aria-expanded", String(open));
+      launcher.setAttribute("aria-label", open ? "Close chat" : "Open chat");
+      teaser.classList.remove("show");
+      if (open) {
+        root.classList.add("chat-seen");
+        store.set("chatSeen", "1");
+        if (!started) { started = true; reply(A.welcome()); }
+        if (!auto && window.matchMedia("(min-width: 761px)").matches) setTimeout(() => input.focus(), 260);
+      }
+    }
+
+    launcher.addEventListener("click", () => setOpen(!root.classList.contains("chat-open")));
+    panel.querySelector(".x").addEventListener("click", () => setOpen(false));
+    document.addEventListener("keydown", e => { if (e.key === "Escape" && root.classList.contains("chat-open")) { setOpen(false); launcher.focus(); } });
+    teaser.addEventListener("click", e => {
+      if (e.target.closest("button")) { teaser.classList.remove("show"); store.set("chatSeen", "1"); return; }
+      setOpen(true);
+    });
+    teaser.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpen(true); } });
+
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      const text = input.value.trim();
+      if (!text) return;
+      input.value = "";
+      addUser(text);
+      reply(answer(text));
+    });
+
+    // Pop up automatically once per visit: the full chat on bigger screens, a small bubble on phones.
+    if (store.get("chatSeen")) {
+      root.classList.add("chat-seen");
+    } else {
+      setTimeout(() => {
+        if (root.classList.contains("chat-open") || store.get("chatSeen")) return;
+        if (window.matchMedia("(min-width: 761px)").matches) setOpen(true, true);
+        else teaser.classList.add("show");
+      }, 4000);
+    }
+  })();
 
   // reveal on scroll
   const items = document.querySelectorAll(".reveal");
