@@ -169,6 +169,25 @@
   .card h3 { font-family: var(--head); font-weight: 700; font-size: 22px; line-height: 1.2; margin: 0 0 10px; color: var(--text-dark); }
   .card p { margin: 0; color: var(--muted-dark); font-size: 15px; }
 
+  /* team */
+  .team { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .member { background: var(--white); border: 1px solid var(--line-light); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: transform .3s, box-shadow .3s; }
+  .member:hover { transform: translateY(-5px); box-shadow: 0 18px 40px rgba(46,46,48,.12); }
+  .member-img { aspect-ratio: 4 / 5; background: #ECECEC; overflow: hidden; }
+  .member-img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; display: block; }
+  .member-body { padding: 22px 24px 26px; }
+  .member-tag { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--red); }
+  .member h3 { font-family: var(--head); font-weight: 700; font-size: 23px; line-height: 1.2; margin: 6px 0 8px; color: var(--text-dark); }
+  .member .creds { margin: 0; font-size: 14.5px; font-weight: 500; letter-spacing: .03em; color: var(--muted-dark); }
+  @media (max-width: 860px) {
+    .team { grid-template-columns: 1fr 1fr; gap: 14px; }
+    .member-body { padding: 16px 16px 20px; }
+    .member h3 { font-size: 19px; }
+  }
+  @media (max-width: 560px) {
+    .team { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+  }
+
   /* what we offer + conditions we treat */
   .offer { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
   .offer-card { padding: 34px 32px; border-radius: var(--radius); background: var(--white); border: 1px solid var(--line-light); box-shadow: var(--shadow); }
@@ -508,6 +527,7 @@
     <nav class="nav-links" id="nav-links">
       <a href="#services">Services</a>
       <a href="#about">About</a>
+      <a href="#team">Team</a>
       <a href="#stories">Stories</a>
       <a href="#process">How it works</a>
       <a href="#locations">Centres</a>
@@ -678,6 +698,45 @@
           <li><svg aria-hidden="true"><use href="#i-check"/></svg> Emergency support on call: +91 98042 18167</li>
         </ul>
         <a class="btn btn-red" href="#book">Book an assessment <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="section light" id="team">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Our team</span>
+          <h2 class="display">Meet your <span class="red">physiotherapists.</span></h2>
+        </div>
+        <p>Qualified, experienced and certified specialists who look after you at every step, from your first assessment to full recovery.</p>
+      </div>
+      <div class="team">
+        <article class="member reveal">
+          <div class="member-img"><img src="img/team-dibyajit-mitra.jpg" alt="Dr. Dibyajit Mitra" loading="lazy" width="640" height="800"></div>
+          <div class="member-body">
+            <span class="member-tag">Lead Physiotherapist</span>
+            <h3>Dr. Dibyajit Mitra</h3>
+            <p class="creds">MPT (Sports)</p>
+          </div>
+        </article>
+        <article class="member reveal">
+          <div class="member-img"><img src="img/team-suparna-dey-choudhary.jpg" alt="Dr. Suparna Dey Choudhary" loading="lazy" width="640" height="800"></div>
+          <div class="member-body">
+            <span class="member-tag">Consultant Physiotherapist</span>
+            <h3>Dr. Suparna Dey Choudhary</h3>
+            <p class="creds">MPT, COMT, CDNT, MIAP</p>
+          </div>
+        </article>
+        <article class="member reveal">
+          <div class="member-img"><img src="img/team-aditya-dhar.jpg" alt="Dr. Aditya Dhar" loading="lazy" width="640" height="800"></div>
+          <div class="member-body">
+            <span class="member-tag">Consultant Physiotherapist</span>
+            <h3>Dr. Aditya Dhar</h3>
+            <p class="creds">BPT, COMT, CDNT, MIAP, CITP</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
