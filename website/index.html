@@ -169,6 +169,29 @@
   .card h3 { font-family: var(--head); font-weight: 700; font-size: 22px; line-height: 1.2; margin: 0 0 10px; color: var(--text-dark); }
   .card p { margin: 0; color: var(--muted-dark); font-size: 15px; }
 
+  /* what we offer + conditions we treat */
+  .offer { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+  .offer-card { padding: 34px 32px; border-radius: var(--radius); background: var(--white); border: 1px solid var(--line-light); box-shadow: var(--shadow); }
+  .offer-card.dark { background: var(--charcoal); border-color: var(--charcoal); color: var(--light); }
+  .offer-card .eyebrow { margin-bottom: 14px; }
+  .light .offer-card.dark .eyebrow { color: var(--text-light); background: rgba(245,245,245,.08); border: 1px solid var(--line-dark); }
+  .light .offer-card.dark .eyebrow::before { background: var(--red-on-dark); }
+  .offer-card h3 { font-family: var(--head); font-weight: 700; font-size: clamp(24px, 2.4vw, 30px); line-height: 1.2; margin: 0 0 20px; color: var(--text-dark); }
+  .offer-card.dark h3 { color: var(--light); }
+  .offer-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .offer-list li { display: flex; gap: 14px; align-items: flex-start; font-size: 15.5px; line-height: 1.45; color: var(--muted-dark); }
+  .offer-list strong { color: var(--text-dark); font-weight: 600; }
+  .offer-card.dark .offer-list li { color: var(--muted-light); }
+  .offer-card.dark .offer-list strong { color: var(--light); }
+  .offer-list .no { flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--red); color: #fff; font-family: var(--head); font-weight: 700; font-size: 13.5px; margin-top: -2px; }
+  .offer-list .dot { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--red-on-dark); margin-top: 8px; }
+  .offer-note { grid-column: 1 / -1; display: flex; align-items: center; justify-content: center; gap: 12px; text-align: center; padding: 22px 28px; border-radius: var(--radius); background: var(--red); color: #fff; font-family: var(--head); font-weight: 700; font-size: clamp(17px, 1.8vw, 21px); line-height: 1.35; }
+  @media (max-width: 860px) {
+    .offer { grid-template-columns: 1fr; }
+    .offer-card { padding: 26px 20px; }
+    .offer-note { padding: 18px; }
+  }
+
   .programs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
   .prog { display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--line-light); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: transform .3s, box-shadow .3s; }
   .prog:hover { transform: translateY(-5px); box-shadow: 0 18px 40px rgba(46,46,48,.14); }
@@ -602,6 +625,37 @@
           </div>
         </article>
       </div>
+
+      <!-- What we offer + conditions we treat -->
+      <div class="offer" id="offer">
+        <div class="offer-card reveal">
+          <span class="eyebrow">What we offer</span>
+          <h3>Comprehensive care. Beyond pain relief.</h3>
+          <ol class="offer-list">
+            <li><span class="no">1</span><span><strong>Sports Medicine &amp; Injury Consultation</strong></span></li>
+            <li><span class="no">2</span><span><strong>Detailed Musculoskeletal Assessment</strong></span></li>
+            <li><span class="no">3</span><span><strong>Doctor-Led Physiotherapy &amp; Rehabilitation</strong></span></li>
+            <li><span class="no">4</span><span><strong>Regenerative Treatments</strong> (PRP / GFC)</span></li>
+            <li><span class="no">5</span><span><strong>Posture, Gait &amp; Movement Assessment</strong></span></li>
+            <li><span class="no">6</span><span><strong>Shockwave Therapy</strong> &amp; Advanced Injury Management</span></li>
+            <li><span class="no">7</span><span><strong>Youth Athlete Care</strong> (Sports Injury Management &amp; Performance)</span></li>
+          </ol>
+        </div>
+        <div class="offer-card dark reveal">
+          <span class="eyebrow">Conditions we treat</span>
+          <h3>From head to heel.</h3>
+          <ul class="offer-list">
+            <li><span class="dot"></span><span><strong>Knee Pain, ACL/PCL</strong> Injuries &amp; Ligament Tears</span></li>
+            <li><span class="dot"></span><span><strong>Shoulder Pain, Rotator Cuff Injuries</strong> &amp; Instability</span></li>
+            <li><span class="dot"></span><span><strong>Tennis Elbow, Golfer's Elbow</strong> &amp; Tendinopathies</span></li>
+            <li><span class="dot"></span><span><strong>Plantar Fasciitis, Heel Pain &amp; Achilles</strong> Tendinopathy</span></li>
+            <li><span class="dot"></span><span><strong>Back Pain, Neck Pain &amp; Spine-Related</strong> Conditions</span></li>
+            <li><span class="dot"></span><span><strong>Muscle Injuries, Strains</strong> &amp; Sports-Related Overuse Injuries</span></li>
+            <li><span class="dot"></span><span><strong>Joint Pain, Early Osteoarthritis</strong> &amp; Movement Dysfunction</span></li>
+          </ul>
+        </div>
+        <div class="offer-note reveal">From diagnosis to rehabilitation and return to activity, all under one clinical approach.</div>
+      </div>
     </div>
   </section>
 
@@ -728,7 +782,7 @@
   <section class="band">
     <div class="wrap band-grid">
       <div class="band-item reveal"><div class="k">Timings</div><div class="v">6:30 AM – 11 PM</div><div class="s">Every day of the week</div></div>
-      <div class="band-item reveal"><div class="k">Approx. charges</div><div class="v">₹1,000</div><div class="s">Final fee depends on your treatment plan</div></div>
+      <div class="band-item reveal"><div class="k">Emergency support</div><div class="v">On call</div><div class="s">+91 98042 18167</div></div>
       <div class="band-item reveal"><div class="k">Service area</div><div class="v">Kolkata</div><div class="s">And surrounding areas</div></div>
     </div>
   </section>
@@ -942,7 +996,6 @@
       wa: "https://wa.me/919804218167",
       form: "https://forms.gle/1ZQy8KrBSV5LBSKR9",
       timings: "6:30 AM to 11:00 PM",
-      charges: "₹1,000",
       area: "Kolkata and its surrounding areas",
       services: [
         "Sports & Gym Injury Rehabilitation",
@@ -951,7 +1004,23 @@
         "Dry Needling for Pain Relief",
         "Post-Operative Rehabilitation (e.g. TKR, THR)",
         "Bone & Joint Care",
-        "Chronic Pain Management (e.g. Arthritis, Frozen Shoulder)"
+        "Chronic Pain Management (e.g. Arthritis, Frozen Shoulder)",
+        "Sports Medicine & Injury Consultation",
+        "Detailed Musculoskeletal Assessment",
+        "Doctor-Led Physiotherapy & Rehabilitation",
+        "Regenerative Treatments (PRP / GFC)",
+        "Posture, Gait & Movement Assessment",
+        "Shockwave Therapy & Advanced Injury Management",
+        "Youth Athlete Care (Sports Injury Management & Performance)"
+      ],
+      conditions: [
+        "Knee Pain, ACL/PCL Injuries & Ligament Tears",
+        "Shoulder Pain, Rotator Cuff Injuries & Instability",
+        "Tennis Elbow, Golfer's Elbow & Tendinopathies",
+        "Plantar Fasciitis, Heel Pain & Achilles Tendinopathy",
+        "Back Pain, Neck Pain & Spine-Related Conditions",
+        "Muscle Injuries, Strains & Sports-Related Overuse Injuries",
+        "Joint Pain, Early Osteoarthritis & Movement Dysfunction"
       ],
       locations: [
         { name: "Rajarhat Centre", address: "1st Floor, Purti Star, Rajarhat Main Road, Kolkata, West Bengal 700135" },
@@ -962,17 +1031,18 @@
     const waMsg = t => CHAT.wa + "?text=" + encodeURIComponent(t);
 
     const MENU = [
-      ["1", "💪 Our services"], ["2", "📍 Clinic locations"], ["3", "🕕 Timings"], ["4", "💰 Charges"],
+      ["1", "💪 Our services"], ["2", "📍 Clinic locations"], ["3", "🕕 Timings"], ["4", "🩺 Conditions we treat"],
       ["5", "🚗 Service area"], ["6", "📝 Book an appointment"], ["7", "📞 Contact / Emergency"]
     ];
     const GREETINGS = ["hi","hello","hey","hii","hiii","start","namaste","namaskar","good morning","good afternoon","good evening","helo","hlo"];
     const KEYWORDS = [
       ["7", ["emergency","urgent","accident","severe pain","help me"]],
       ["6", ["book","appointment","slot","visit","consult","register","registration","form","payment","pay","upi","screenshot"]],
-      ["1", ["service","treatment","physio","acl","knee","shoulder","arthritis","rehab","injury","pain","tkr","thr","pcl","meniscus","ligament","needling","sports"]],
+      ["4", ["condition","elbow","heel","plantar","achilles","spine","neck","back pain","rotator","tendin","osteoarthritis","strain","overuse"]],
+      ["fees", ["charge","fee","price","cost","rate","how much"]],
+      ["1", ["service","treatment","physio","prp","gfc","shockwave","posture","gait","youth","assessment","acl","knee","shoulder","arthritis","rehab","injury","pain","tkr","thr","pcl","meniscus","ligament","needling","sports"]],
       ["2", ["address","location","where","map","direction","rajarhat","vivekananda","branch","centre","center"]],
       ["3", ["time","timing","open","close","hours","when"]],
-      ["4", ["charge","fee","price","cost","rate","how much"]],
       ["5", ["area","home visit","surrounding","cover"]],
       ["7", ["contact","call","phone","number","email","mail"]]
     ];
@@ -1000,9 +1070,11 @@
           "<p><strong>" + (i + 1) + ". " + l.name + "</strong><br>" + l.address + "</p>").join(""),
         actions: CHAT.locations.map(l => ({ label: "🗺️ " + l.name.replace(" Centre", ""), href: maps(l.address) })) }),
       "3": () => ({ html: "<p>🕕 <strong>Timings</strong></p><p>We are open every day from <strong>" + CHAT.timings + "</strong>.</p>" }),
-      "4": () => ({ html: "<p>💰 <strong>Charges</strong></p><p>Approximate charges: <strong>" + CHAT.charges + "</strong>.</p>" +
-        "<p>The exact fee depends on your condition and treatment plan. Call us at " + CHAT.phone + " for details.</p>",
-        actions: [{ label: "📞 Call us", href: CHAT.tel }] }),
+      "4": () => ({ html: "<p>🩺 <strong>Conditions we treat</strong></p><ul>" + CHAT.conditions.map(s => "<li>" + s + "</li>").join("") +
+        "</ul><p>From diagnosis to rehabilitation and return to activity, all under one clinical approach.</p>",
+        actions: [{ label: "📝 Book an appointment", choose: "6", cls: "red" }] }),
+      fees: () => ({ html: "<p>For fee details, please call or WhatsApp us at <strong>" + CHAT.phone + "</strong>. It depends on your condition and treatment plan.</p>",
+        actions: [{ label: "📞 Call us", href: CHAT.tel, cls: "red" }, { label: "WhatsApp us", href: waMsg("Hi, I'd like to know about the fees."), cls: "wa" }] }),
       "5": () => ({ html: "<p>🚗 <strong>Service Area</strong></p><p>We serve <strong>" + CHAT.area + "</strong>.</p>" }),
       "6": () => ({ html: "<p>📝 <strong>Book an appointment</strong></p>" +
         "<p>Please register using our form (takes about 2 minutes).</p><p><strong>How it works:</strong></p><ol>" +

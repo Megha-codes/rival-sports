@@ -1,6 +1,6 @@
 # Rival Sports / Performance Plus Physio WhatsApp Bot
 
-A menu-driven WhatsApp bot. It answers questions about services, the two centres (with Google Maps links), timings, charges, and service area. It sends emergency contact info. For bookings, it sends the Google registration form (https://forms.gle/1ZQy8KrBSV5LBSKR9) with the payment steps, and when a patient sends an image or file (the payment screenshot), it thanks them and says the team will confirm. Registrations are collected in the Google Form's responses.
+A menu-driven WhatsApp bot. It answers questions about services, the two centres (with Google Maps links), timings, conditions treated, and service area. It sends emergency contact info. For bookings, it sends the Google registration form (https://forms.gle/1ZQy8KrBSV5LBSKR9) with the payment steps, and when a patient sends an image or file (the payment screenshot), it thanks them and says the team will confirm. Registrations are collected in the Google Form's responses.
 
 To change any business details or reply text, edit `business_info.py`.
 

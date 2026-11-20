@@ -21,7 +21,6 @@ LOCATIONS = [
 ]
 
 TIMINGS = "6:30 AM to 11:00 PM"
-APPROX_CHARGES = "₹1,000"
 SERVICE_AREA = "Kolkata and its surrounding areas"
 
 SERVICES = [
@@ -32,6 +31,23 @@ SERVICES = [
     "Post-Operative Rehabilitation (e.g. TKR, THR)",
     "Bone & Joint Care",
     "Chronic Pain Management (e.g. Arthritis, Frozen Shoulder)",
+    "Sports Medicine & Injury Consultation",
+    "Detailed Musculoskeletal Assessment",
+    "Doctor-Led Physiotherapy & Rehabilitation",
+    "Regenerative Treatments (PRP / GFC)",
+    "Posture, Gait & Movement Assessment",
+    "Shockwave Therapy & Advanced Injury Management",
+    "Youth Athlete Care (Sports Injury Management & Performance)",
+]
+
+CONDITIONS = [
+    "Knee Pain, ACL/PCL Injuries & Ligament Tears",
+    "Shoulder Pain, Rotator Cuff Injuries & Instability",
+    "Tennis Elbow, Golfer's Elbow & Tendinopathies",
+    "Plantar Fasciitis, Heel Pain & Achilles Tendinopathy",
+    "Back Pain, Neck Pain & Spine-Related Conditions",
+    "Muscle Injuries, Strains & Sports-Related Overuse Injuries",
+    "Joint Pain, Early Osteoarthritis & Movement Dysfunction",
 ]
 
 
@@ -52,7 +68,7 @@ MENU_TEXT = (
     "1️⃣ Our services\n"
     "2️⃣ Clinic locations\n"
     "3️⃣ Timings\n"
-    "4️⃣ Charges\n"
+    "4️⃣ Conditions we treat\n"
     "5️⃣ Service area\n"
     "6️⃣ Book an appointment\n"
     "7️⃣ Contact us / Emergency\n\n"
@@ -72,10 +88,16 @@ LOCATIONS_TEXT = "📍 *Our Centres*\n\n" + "\n\n".join(
 
 TIMINGS_TEXT = f"🕕 *Timings*\n\nWe are open every day from *{TIMINGS}*."
 
-CHARGES_TEXT = (
-    f"💰 *Charges*\n\nApproximate charges: *{APPROX_CHARGES}*.\n"
-    "The exact fee depends on your condition and treatment plan. "
-    f"Call us at {PHONE} for details."
+CONDITIONS_TEXT = (
+    "🩺 *Conditions We Treat*\n\n"
+    + "\n".join(f"• {c}" for c in CONDITIONS)
+    + "\n\nFrom diagnosis to rehabilitation and return to activity, all under one clinical approach. "
+    "Reply *6* to book an appointment."
+)
+
+FEES_TEXT = (
+    f"For fee details, please call us at *{PHONE}*. "
+    "It depends on your condition and treatment plan."
 )
 
 SERVICE_AREA_TEXT = f"🚗 *Service Area*\n\nWe serve *{SERVICE_AREA}*."
